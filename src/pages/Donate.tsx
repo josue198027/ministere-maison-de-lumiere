@@ -3,15 +3,18 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, CreditCard, Building2, Shield, BookOpen } from "lucide-react";
+import { asset } from "@/lib/utils";
+
+const STRIPE_DONATE_URL = "https://donate.stripe.com/14A6oH6thaZAcja4aIawo04";
 
 const Donate = () => {
   const paymentMethods = [
     {
       icon: CreditCard,
-      name: "PayPal",
-      description: "Paiement sécurisé par carte bancaire ou compte PayPal",
-      action: "Donner via PayPal",
-      link: "https://www.paypal.com",
+      name: "Carte bancaire",
+      description: "Don sécurisé en ligne via Stripe (Visa, Mastercard, Amex)",
+      action: "Donner maintenant",
+      link: STRIPE_DONATE_URL,
     },
     {
       icon: Building2,
@@ -129,6 +132,59 @@ const Donate = () => {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Don rapide via QR Code Stripe */}
+      <section className="py-16 bg-gradient-to-br from-primary to-primary-glow">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-4xl font-bold text-white mb-4">Don Rapide par QR Code</h2>
+              <p className="text-white/90 text-lg">Scannez avec votre téléphone pour donner instantanément</p>
+            </div>
+            <Card className="border-2 border-accent/30">
+              <CardContent className="p-8 md:p-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="flex justify-center">
+                    <div className="bg-white p-4 rounded-2xl shadow-lg">
+                      <img
+                        src={asset("images/qr-don-stripe.png")}
+                        alt="QR code pour faire un don"
+                        className="w-64 h-64 md:w-72 md:h-72"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-center md:text-left">
+                    <h3 className="text-2xl font-bold text-primary mb-4">Comment ça marche ?</h3>
+                    <ol className="space-y-3 text-foreground mb-6">
+                      <li className="flex items-start">
+                        <span className="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">1</span>
+                        <span>Ouvrez l'appareil photo de votre téléphone</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">2</span>
+                        <span>Pointez-le vers le QR code ci-contre</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">3</span>
+                        <span>Touchez le lien qui apparaît et choisissez votre montant</span>
+                      </li>
+                    </ol>
+                    <Button
+                      className="w-full md:w-auto bg-primary hover:bg-primary/90"
+                      asChild
+                    >
+                      <a href={STRIPE_DONATE_URL} target="_blank" rel="noopener noreferrer">
+                        <Heart className="w-4 h-4 mr-2" />
+                        Ou cliquez ici pour donner
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Target, TrendingUp, Book } from "lucide-react";
+import { asset } from "@/lib/utils";
 
 const About = () => {
   const values = [
@@ -145,8 +146,12 @@ const About = () => {
             <Card className="border-2 border-primary/20">
               <CardContent className="p-8">
                 <div className="text-center mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-5xl text-white font-bold">BJ</span>
+                  <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4 border-4 border-accent shadow-lg">
+                    <img
+                      src={asset("images/pasteur-josue.jpg")}
+                      alt="Bishop Josué Joachim"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold text-primary mb-2">Bishop Josué Joachim</h3>
                   <p className="text-lg text-muted-foreground mb-4">Pasteur Principal & Fondateur</p>

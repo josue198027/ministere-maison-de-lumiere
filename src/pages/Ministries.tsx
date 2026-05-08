@@ -146,10 +146,10 @@ const Ministries = () => {
               Nous contacter
             </a>
             <a
-              href="tel:3435966936"
+              href="tel:3435407075"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-primary transition-colors"
             >
-              Appeler : 343-596-6936
+              Appeler : 343-540-7075
             </a>
           </div>
         </div>

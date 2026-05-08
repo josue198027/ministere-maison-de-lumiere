@@ -66,8 +66,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Téléphone",
-      content: "343-596-6936",
-      link: "tel:3435966936",
+      content: "343-540-7075",
+      link: "tel:3435407075",
     },
     {
       icon: Mail,
@@ -253,7 +253,7 @@ const Contact = () => {
                     <Link to="/prayer">Demander une prière</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white" asChild>
-                    <a href="tel:3435966936">Appeler maintenant</a>
+                    <a href="tel:3435407075">Appeler maintenant</a>
                   </Button>
                 </div>
               </CardContent>
