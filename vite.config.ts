@@ -206,8 +206,15 @@ function cdnPrefixImages(): Plugin {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const normalizeBasePath = (basePath: string) => {
+    const withLeadingSlash = basePath.startsWith('/') ? basePath : `/${basePath}`;
+    return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`;
+  };
+
+  const defaultBasePath = mode === 'production' ? '/ministere-maison-de-lumiere/' : '/';
+
   return {
-    base: process.env.BASE_PATH || '/',
+    base: normalizeBasePath(process.env.BASE_PATH || defaultBasePath),
     server: {
       host: "::",
       port: 8080,
